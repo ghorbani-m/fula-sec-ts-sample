@@ -1,8 +1,16 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import { FullaDID } from "./fula-sec/did"
 function App() {
+  const createDID=async ()=>{
+    const DID=new FullaDID();
+    const didObj=await DID.create();
+    console.log("didObj",didObj)
+  }
+  useEffect(()=>{
+    createDID();
+  },[])
   return (
     <div className="App">
       <header className="App-header">
